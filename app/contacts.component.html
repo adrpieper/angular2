@@ -2,8 +2,8 @@
     <h2>Moje kontakty</h2>
     <div>
         <label>numer: </label>
-        <input [(ngModel)]="searchNumber" placeholder="number" />
-        <button (click)="search()">OK</button>
+        <input [ngFormControl]="searchNumber" placeholder="number" />
+
     </div>
     <ul class="contacts">
         <li *ngFor="let contact of contacts"
