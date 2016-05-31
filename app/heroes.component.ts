@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from './hero';
+import { Contact } from './contact';
 import { HeroDetailComponent } from './hero-detail.component';
-import { HeroService } from './hero.service';
+import { ContactService } from './hero.service';
 import { Router } from '@angular/router-deprecated';
 
 @Component({
@@ -10,18 +10,18 @@ import { Router } from '@angular/router-deprecated';
   directives: [HeroDetailComponent]
 })
 export class HeroesComponent implements OnInit {
-  heroes: Hero[];
-  selectedHero: Hero;
+  heroes: Contact[];
+  selectedHero: Contact;
   constructor(
     private router: Router,
-    private heroService: HeroService) { }
+    private heroService: ContactService) { }
   getHeroes() {
-    this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+    this.heroService.getContacts().then(heroes => this.heroes = heroes);
   }
   ngOnInit() {
     this.getHeroes();
   }
-  onSelect(hero: Hero) { this.selectedHero = hero; }
+  onSelect(hero: Contact) { this.selectedHero = hero; }
   gotoDetail() {
     this.router.navigate(['HeroDetail', { id: this.selectedHero.id }]);
   }

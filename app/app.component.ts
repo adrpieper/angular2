@@ -1,5 +1,5 @@
 import { Component }       from '@angular/core';
-import { HeroService }     from './hero.service';
+import { ContactService }     from './hero.service';
 import { HeroesComponent } from './heroes.component';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 import { DashboardComponent } from './dashboard.component';
@@ -40,7 +40,7 @@ import { HeroDetailComponent } from './hero-detail.component';
   directives: [ROUTER_DIRECTIVES],
   providers: [
     ROUTER_PROVIDERS,
-    HeroService
+    ContactService
   ]
 
 })

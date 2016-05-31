@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from './hero';
+import { Contact } from './contact';
 import { RouteParams } from '@angular/router-deprecated';
-import { HeroService } from './hero.service';
+import { ContactService } from './hero.service';
 
 
 @Component({
@@ -13,14 +13,14 @@ import { HeroService } from './hero.service';
 
 })
 export class HeroDetailComponent implements OnInit {
-  hero: Hero;
+  hero: Contact;
   constructor(
-    private heroService: HeroService,
+    private heroService: ContactService,
     private routeParams: RouteParams) {
   }
   ngOnInit() {
     let id = +this.routeParams.get('id');
-    this.heroService.getHero(id)
+    this.heroService.getConcact(id)
       .then(hero => this.hero = hero);
   }
   goBack() {

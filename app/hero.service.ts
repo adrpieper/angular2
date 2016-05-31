@@ -1,21 +1,22 @@
 import { Injectable } from '@angular/core';
-import { Hero } from './hero';
-import { HEROES } from './mock-heroes';
+import { Contact } from './contact';
+import { CONTACTS } from './mock-contacts';
 
 @Injectable()
-export class HeroService {
-  getHeroes() {
-    return Promise.resolve(HEROES);
+export class ContactService {
+  getContacts() {
+    return Promise.resolve(CONTACTS);
   }
   // See the "Take it slow" appendix
-  getHeroesSlowly() {
-    return new Promise<Hero[]>(resolve =>
-      setTimeout(()=>resolve(HEROES), 2000) // 2 seconds
+  getContactsSlowly() {
+    return new Promise<Contact[]>(resolve =>
+      setTimeout(()=>resolve(CONTACTS), 200) // 0.2 seconds
     );
-  },
-  getHero(id: number) {
-    return Promise.resolve(HEROES).then(
-      heroes => heroes.filter(hero => hero.id === id)[0]
+  }
+
+  getConcact(id:number) {
+    return Promise.resolve(CONTACTS).then(
+      contacts => contacts.filter(contact => contact.id === id)[0]
     );
   }
 
