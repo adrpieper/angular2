@@ -1,15 +1,20 @@
     <h1>{{title}}</h1>
     <h2>Moje kontakty</h2>
+    <div>
+        <label>numer: </label>
+        <input [(ngModel)]="searchNumber" placeholder="number" />
+        <button (click)="search()">OK</button>
+    </div>
     <ul class="contacts">
         <li *ngFor="let contact of contacts"
             [class.selected]="contact === selectedContact"
             (click)="onSelect(contact)">
-            <span class="badge">{{contact.id}}</span> {{contact.name}}
+            <span class="badge">{{contact.id}}</span> {{contact.name}} {{contact.surname}}
         </li>
     </ul>
     <div *ngIf="selectedContact">
         <h2>
-            {{selectedContact.name | uppercase}} is my hero
+            {{selectedContact.name | uppercase}} Numer tel.: {{selectedContact.callNumber}}
         </h2>
-        <button (click)="gotoDetail()">View Details</button>
+        <button (click)="gotoDetail()">Edycja</button>
     </div>

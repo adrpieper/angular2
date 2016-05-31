@@ -13,6 +13,11 @@ export class ContactService {
     return Promise.resolve(CONTACTS.sort((first,second) => second.rank - first.rank).slice(0,count));
   }
 
+  getContactsByNumber(callNumber: number) {
+
+    return Promise.resolve(CONTACTS.filter((contact,number,contacts) => contact.callNumber.toString().startsWith(callNumber.toString())));
+  }
+
   getContacts() {
     return Promise.resolve(CONTACTS);
   }

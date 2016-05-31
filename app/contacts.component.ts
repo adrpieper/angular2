@@ -12,20 +12,25 @@ import { Router } from '@angular/router-deprecated';
 export class ContactsComponent implements OnInit {
   contacts: Contact[];
   selectedContact: Contact;
+  searchNumber: number;
   constructor(
     private router: Router,
     private contactService: ContactService) { }
 
   getHeroes() {
-    this.contactService.getTopContacts(2).then(contacts => this.contacts = contacts);
-	//this.contacts = this.contactService.getContactsTable();
+    this.contactService.getContacts().then(contacts => this.contacts = contacts);
   }
   ngOnInit() {
     this.getHeroes();
   }
   onSelect(contact: Contact) { this.selectedContact = contact; }
+  
   gotoDetail() {
     this.router.navigate(['ContactDetail', { id: this.selectedContact.id }]);
+  }
+
+  search(){
+    this.contactService.getContactsByNumber(this.searchNumber).then(contacts => this.contacts = contacts);
   }
 }
 
