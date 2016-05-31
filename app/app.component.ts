@@ -4,6 +4,7 @@ import { ContactsComponent } from './contacts.component';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 import { DashboardComponent } from './dashboard.component';
 import { ContactEditComponent } from './contact-edit.component';
+import {ContactAddComponent} from "./contact-add.component";
 
 @RouteConfig([
   {
@@ -16,6 +17,11 @@ import { ContactEditComponent } from './contact-edit.component';
     name: 'Dashboard',
     component: DashboardComponent,
     useAsDefault: true
+  },
+  {
+    path: '/add',
+    name: 'ContactAdd',
+    component: ContactAddComponent
   },
   {
     path: '/edit/:id',
@@ -32,6 +38,7 @@ import { ContactEditComponent } from './contact-edit.component';
     <nav>
       <a [routerLink]="['Dashboard']">Najczęściej wybierane</a>
       <a [routerLink]="['Contacts']">Kontakty</a>
+      <a [routerLink]="['ContactAdd']">Nowy</a>
     </nav>
     <router-outlet></router-outlet>
   `,

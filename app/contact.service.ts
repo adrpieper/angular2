@@ -18,6 +18,10 @@ export class ContactService {
     return Promise.resolve(CONTACTS.filter((contact,number,contacts) => contact.callNumber.toString().startsWith(callNumber.toString())));
   }
 
+  addNew(contact: Contact){
+    CONTACTS.push(contact);
+  }
+
   getContacts() {
     return Promise.resolve(CONTACTS);
   }
