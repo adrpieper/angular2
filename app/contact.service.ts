@@ -9,6 +9,10 @@ export class ContactService {
     return CONTACTS;
   }
 
+  getTopContacts(count:number){
+    return Promise.resolve(CONTACTS.sort((first,second) => second.rank - first.rank).slice(0,count));
+  }
+
   getContacts() {
     return Promise.resolve(CONTACTS);
   }

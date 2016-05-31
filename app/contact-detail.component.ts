@@ -6,8 +6,8 @@ import { ContactService } from './contact.service';
 
 @Component({
   selector: 'my-contact-detail',
-  templateUrl: 'contact-detail.component.html',
-  styleUrls:  ['contact-detail.component.css'],
+  templateUrl: 'app/contact-detail.component.html',
+  styleUrls:  ['app/contact-detail.component.css'],
 })
 export class ContactDetailComponent implements OnInit {
   contact: Contact;
@@ -17,7 +17,7 @@ export class ContactDetailComponent implements OnInit {
   }
   ngOnInit() {
     let id = +this.routeParams.get('id');
-    //this.contactService.getConcact(id).then(contact => this.contact = contact);
+    this.contactService.getConcact(id).then(contact => this.contact = contact);
   }
   goBack() {
     window.history.back();

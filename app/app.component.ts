@@ -30,7 +30,7 @@ import { ContactDetailComponent } from './contact-detail.component';
   template: `
     <h1>{{title}}</h1>
     <nav>
-      <a [routerLink]="['Dashboard']">Dashboard</a>
+      <a [routerLink]="['Dashboard']">Najczęściej wybierane</a>
       <a [routerLink]="['Contacts']">Kontakty</a>
     </nav>
     <router-outlet></router-outlet>

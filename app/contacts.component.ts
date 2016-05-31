@@ -5,8 +5,8 @@ import { ContactService } from './contact.service';
 import { Router } from '@angular/router-deprecated';
 
 @Component({
-  templateUrl: 'contacts.component.html',
-  styleUrls:  ['contacts.component.css'],
+  templateUrl: 'app/contacts.component.html',
+  styleUrls:  ['app/contacts.component.css'],
   directives: [ContactDetailComponent]
 })
 export class ContactsComponent implements OnInit {
@@ -17,7 +17,7 @@ export class ContactsComponent implements OnInit {
     private contactService: ContactService) { }
 
   getHeroes() {
-    //this.contactService.getContacts().then(contacts => this.contacts = contacts);
+    this.contactService.getTopContacts(2).then(contacts => this.contacts = contacts);
 	//this.contacts = this.contactService.getContactsTable();
   }
   ngOnInit() {
