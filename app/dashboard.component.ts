@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Contact } from './contact';
-import { ContactService } from './hero.service';
+import { ContactService } from './contact.service';
 import { Router } from '@angular/router-deprecated';
 
 
@@ -14,18 +14,20 @@ import { Router } from '@angular/router-deprecated';
 
 })
 export class DashboardComponent implements OnInit {
-  heroes: Contact[] = [];
+  contacts: Contact[] = [];
   constructor(
     private router: Router,
-    private heroService: ContactService) {
+    private contactService: ContactService) {
   }
 
   ngOnInit() {
-    this.heroService.getContacts()
-      .then(heroes => this.heroes = heroes.slice(1,5));
+    //this.contactService.getContacts()
+    //  .then(contacts => this.contacts = contacts.slice(1,2));
+    this.contacts = this.contactService.getContactsTable();
   }
-  gotoDetail(hero: Contact) {
-    let link = ['HeroDetail', { id: hero.id }];
+
+  gotoDetail(contact: Contact) {
+    let link = ['ContactDetail', { id: contact.id }];
     this.router.navigate(link);
   }
 

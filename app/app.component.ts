@@ -1,15 +1,15 @@
 import { Component }       from '@angular/core';
-import { ContactService }     from './hero.service';
-import { HeroesComponent } from './heroes.component';
+import { ContactService }     from './contact.service';
+import { ContactsComponent } from './contacts.component';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 import { DashboardComponent } from './dashboard.component';
-import { HeroDetailComponent } from './hero-detail.component';
+import { ContactDetailComponent } from './contact-detail.component';
 
 @RouteConfig([
   {
-    path: '/heroes',
-    name: 'Heroes',
-    component: HeroesComponent
+    path: '/contacts',
+    name: 'Contacts',
+    component: ContactsComponent
   },
   {
     path: '/dashboard',
@@ -19,8 +19,8 @@ import { HeroDetailComponent } from './hero-detail.component';
   },
   {
     path: '/detail/:id',
-    name: 'HeroDetail',
-    component: HeroDetailComponent
+    name: 'ContactDetail',
+    component: ContactDetailComponent
   },
 
 
@@ -31,7 +31,7 @@ import { HeroDetailComponent } from './hero-detail.component';
     <h1>{{title}}</h1>
     <nav>
       <a [routerLink]="['Dashboard']">Dashboard</a>
-      <a [routerLink]="['Heroes']">Heroes</a>
+      <a [routerLink]="['Contacts']">Kontakty</a>
     </nav>
     <router-outlet></router-outlet>
   `,
@@ -45,5 +45,5 @@ import { HeroDetailComponent } from './hero-detail.component';
 
 })
 export class AppComponent {
-  title = 'Tour of Heroes';
+  title = 'Kontakty';
 }

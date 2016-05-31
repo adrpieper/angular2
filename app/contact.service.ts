@@ -4,6 +4,11 @@ import { CONTACTS } from './mock-contacts';
 
 @Injectable()
 export class ContactService {
+
+  getContactsTable(){
+    return CONTACTS;
+  }
+
   getContacts() {
     return Promise.resolve(CONTACTS);
   }
