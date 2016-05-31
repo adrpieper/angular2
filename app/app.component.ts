@@ -3,7 +3,7 @@ import { ContactService }     from './contact.service';
 import { ContactsComponent } from './contacts.component';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 import { DashboardComponent } from './dashboard.component';
-import { ContactDetailComponent } from './contact-detail.component';
+import { ContactEditComponent } from './contact-edit.component';
 
 @RouteConfig([
   {
@@ -18,9 +18,9 @@ import { ContactDetailComponent } from './contact-detail.component';
     useAsDefault: true
   },
   {
-    path: '/detail/:id',
-    name: 'ContactDetail',
-    component: ContactDetailComponent
+    path: '/edit/:id',
+    name: 'ContactEdit',
+    component: ContactEditComponent
   },
 
 

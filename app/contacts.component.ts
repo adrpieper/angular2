@@ -42,7 +42,7 @@ export class ContactsComponent implements OnInit {
   onSelect(contact: Contact) { this.selectedContact = contact; }
   
   gotoDetail() {
-    this.router.navigate(['ContactDetail', { id: this.selectedContact.id }]);
+    this.router.navigate(['ContactEdit', { id: this.selectedContact.id }]);
   }
 }
 

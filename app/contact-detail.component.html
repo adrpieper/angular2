@@ -1,10 +1,16 @@
 <div *ngIf="contact">
-  <h2>{{contact.name}} details!</h2>
   <div>
     <label>id: </label>{{contact.id}}</div>
   <div>
-    <label>name: </label>
-    <input [(ngModel)]="contact.name" placeholder="name" />
+    <label>Imię: </label>
+    <input [(ngModel)]="contact.name" placeholder="imię" />
+  <div>
   </div>
-  <button (click)="goBack()">Back</button>
+    <label>Nazwisko: </label>
+    <input [(ngModel)]="contact.surname" placeholder="nazwisko" />
+  <div>
+  </div>
+    <label>Numer Telefonu: </label>
+    <input [(ngModel)]="contact.callNumber" placeholder="numer" />
+  </div>
 </div>
