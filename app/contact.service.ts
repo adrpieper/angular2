@@ -1,15 +1,34 @@
 import { Injectable } from '@angular/core';
 import { Contact } from './contact';
 import { CONTACTS } from './mock-contacts';
+import { Observable } from 'rxjs/Observable';
+import {Subject} from "rxjs/Rx";
 
 @Injectable()
 export class ContactService {
-
+  contactsData: Contact[];
+  contacts: Subject<Contact[]>;
   maxId: number;
 
   constructor(){
     let nums:number[] = CONTACTS.map((contact)=>contact.id);
     this.maxId = Math.max.apply(nums);
+    this.contacts = new Subject<Contact[]>();
+    this.contactsData = CONTACTS;
+  }
+
+  subscribe(sub:(value: Contact[]) => void){
+    this.contacts.subscribe(sub);
+    this.contacts.next(CONTACTS);
+  }
+
+  remove(id:number){
+    this.contactsData = this.contactsData.filter((c) => c.id == id);
+    this.contacts.next(this.contactsData);
+  }
+
+  getContactsSubject(){
+    return this.contacts;
   }
 
   getContactsTable(){

@@ -28,14 +28,15 @@ export class ContactsComponent implements OnInit {
   }
 
   getHeroes() {
-    this.subscribe(this.contactService.getContacts());
+    //this.subscribe(this.contactService.getContactsSubject());
+    this.contactService.subscribe((c) => this.contacts =c);
   }
   ngOnInit() {
-    this.searchNumber.valueChanges.debounceTime(400).distinctUntilChanged().subscribe(
+    /*this.searchNumber.valueChanges.debounceTime(400).distinctUntilChanged().subscribe(
         callNumber => {
           this.subscribe(this.contactService.getContactsByNumber(callNumber))
         }
-    );
+    );*/
 
     this.getHeroes();
   }
@@ -43,6 +44,10 @@ export class ContactsComponent implements OnInit {
   
   gotoDetail() {
     this.router.navigate(['ContactEdit', { id: this.selectedContact.id }]);
+  }
+  
+  delete() {
+    this.contactService.remove(this.selectedContact.id);
   }
 }
 
