@@ -5,6 +5,13 @@ import { CONTACTS } from './mock-contacts';
 @Injectable()
 export class ContactService {
 
+  maxId: number;
+
+  constructor(){
+    let nums:number[] = CONTACTS.map((contact)=>contact.id);
+    this.maxId = Math.max.apply(nums);
+  }
+
   getContactsTable(){
     return CONTACTS;
   }
@@ -19,6 +26,8 @@ export class ContactService {
   }
 
   addNew(contact: Contact){
+    this.maxId+=1;
+    contact.id = this.maxId;
     CONTACTS.push(contact);
   }
 

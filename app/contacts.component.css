@@ -14,7 +14,7 @@
       left: 0;
       background-color: #BAFFBA;
       margin: .5em;
-      padding: .3em 0;
+      padding: .3em;
       height: 1.6em;
       border-radius: 4px;
     }
@@ -44,4 +44,12 @@
       height: 1.8em;
       margin-right: .8em;
       border-radius: 4px 0 0 4px;
+    }
+    .data-line {
+        width: 32em;
+        font-size: large;
+        border-radius: 4px;
+        background-color: #AbCCAc;
+        margin: 0.2em;
+        padding: 0.2em;
     }

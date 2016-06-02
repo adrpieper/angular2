@@ -9,12 +9,12 @@
         <li *ngFor="let contact of contacts"
             [class.selected]="contact === selectedContact"
             (click)="onSelect(contact)">
-            <span class="badge">{{contact.id}}</span> {{contact.name}} {{contact.surname}}
+            {{contact.name}} {{contact.surname}}
         </li>
     </ul>
     <div *ngIf="selectedContact">
-        <h2>
-            {{selectedContact.name | uppercase}} Numer tel.: {{selectedContact.callNumber}}
-        </h2>
+        <div class="data-line">Imię: {{selectedContact.name}}</div>
+        <div class="data-line">Nazwisko: {{selectedContact.surname}}</div>
+        <div class="data-line">Numer tel.: {{selectedContact.callNumber}}</div>
         <button (click)="gotoDetail()">Edycja</button>
     </div>
