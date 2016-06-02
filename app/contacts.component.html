@@ -15,6 +15,7 @@
     <div *ngIf="selectedContact">
         <div class="data-line">Imię: {{selectedContact.name}}</div>
         <div class="data-line">Nazwisko: {{selectedContact.surname}}</div>
+        <div class="data-line">E-mail: {{selectedContact.email}}</div>
         <div class="data-line">Numer tel.: {{selectedContact.callNumber}}</div>
         <button (click)="gotoDetail()">Edycja</button>
         <button (click)="delete()">Usuń</button>

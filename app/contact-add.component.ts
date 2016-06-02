@@ -15,7 +15,7 @@ export class ContactAddComponent implements OnInit {
     private contactService: ContactService) {
   }
   ngOnInit() {
-    this.contact = {"id" : 0, "name" : "", "surname" : "", "rank" : 0, "callNumber" : ""};
+    this.contact = {"id" : 0, "name" : "", "surname" : "", "rank" : 0, "callNumber" : "", "email" : ""};
   }
 
   add(){

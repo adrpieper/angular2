@@ -2,27 +2,34 @@
 
   <form #contactForm="ngForm">
   <div *ngIf="contact.id != 0">
-    <label>id: </label>{{contact.id}}</div>
+    <label>id: </label>{{contact.id}}
+  </div>
   <div>
     <label>Imię: </label>
     <input  type="text" class="form-control" required [(ngModel)]="contact.name" placeholder="imię"
-           ngControl="name"  #name="ngForm"
-            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"/>
+           ngControl="name"  #name="ngForm"/>
     <span [hidden]="name.valid || name.pristine" class="alert">
-      Podaj poprawny email
+      Podaj imię
     </span>
-  <div>
   </div>
+    <div>
     <label>Nazwisko: </label>
     <input [(ngModel)]="contact.surname" placeholder="nazwisko" />
-  <div>
   </div>
+    <div>
     <label>Numer Telefonu: </label>
     <input type="text" class="form-control" [(ngModel)]="contact.callNumber" placeholder="numer"
-    ngControl="callNumber"  #callNumber="ngForm" pattern="^\d{6,9})+$"/>
-    <div [hidden]="callNumber.valid || callNumber.pristine" class="alert">
-      Podaj poprawny numer
+    ngControl="callNumber"  #callNumber="ngForm" pattern="^\d{6,12}$"/>
+      <span [hidden]="callNumber.valid || callNumber.pristine" class="alert">Podaj poprawny numer</span>
     </div>
+    <div>
+      <label>E-mail: </label>
+      <input  type="text" class="form-control" required [(ngModel)]="contact.email" placeholder="e-mail"
+              ngControl="email"  #email="ngForm"
+              pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"/>
+    <span [hidden]="email.valid || email.pristine" class="alert">
+      Podaj poprawny email
+    </span>
     </div>
   </form>
   <div class="form-invalid" *ngIf="!contactForm.form.valid">
