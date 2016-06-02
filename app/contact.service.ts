@@ -17,51 +17,41 @@ export class ContactService {
     this.contactsData = CONTACTS;
   }
 
+  getData(){
+    this.contacts.next(this.contactsData);
+  }
+
   subscribe(sub:(value: Contact[]) => void){
     this.contacts.subscribe(sub);
-    this.contacts.next(CONTACTS);
+    this.getData();
+    //this.contacts.next(this.contactsData);
   }
 
   remove(id:number){
-    this.contactsData = this.contactsData.filter((c) => c.id == id);
-    this.contacts.next(this.contactsData);
+    this.contactsData = this.contactsData.filter((c) => c.id != id);
+    this.getData();
   }
 
   getContactsSubject(){
     return this.contacts;
   }
 
-  getContactsTable(){
-    return CONTACTS;
-  }
-
-  getTopContacts(count:number){
-    return Promise.resolve(CONTACTS.sort((first,second) => second.rank - first.rank).slice(0,count));
-  }
-
-  getContactsByNumber(callNumber: number) {
-
-    return Promise.resolve(CONTACTS.filter((contact,number,contacts) => contact.callNumber.toString().startsWith(callNumber.toString())));
+  subscribeTopContacts(sub:(value: Contact[]) => void,count:number){
+    var topSub = (contacts) => {
+      sub(contacts.sort((first,second) => second.rank - first.rank).slice(0,count));
+    };
+    this.contacts.subscribe(topSub);
+    this.getData();
   }
 
   addNew(contact: Contact){
     this.maxId+=1;
     contact.id = this.maxId;
-    CONTACTS.push(contact);
-  }
-
-  getContacts() {
-    return Promise.resolve(CONTACTS);
-  }
-  // See the "Take it slow" appendix
-  getContactsSlowly() {
-    return new Promise<Contact[]>(resolve =>
-      setTimeout(()=>resolve(CONTACTS), 200) // 0.2 seconds
-    );
+    this.contactsData.push(contact);
   }
 
   getConcact(id:number) {
-    return Promise.resolve(CONTACTS).then(
+    return Promise.resolve(this.contactsData).then(
       contacts => contacts.filter(contact => contact.id === id)[0]
     );
   }

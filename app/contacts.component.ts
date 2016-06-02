@@ -17,6 +17,7 @@ import 'rxjs/add/operator/switchMap';
 })
 export class ContactsComponent implements OnInit {
   contacts: Contact[];
+  callNumber: string = "";
   selectedContact: Contact;
   searchNumber: Control = new Control();
   constructor(
@@ -27,19 +28,17 @@ export class ContactsComponent implements OnInit {
     contactsPromise.then(contacts => this.contacts = contacts)
   }
 
-  getHeroes() {
-    //this.subscribe(this.contactService.getContactsSubject());
-    this.contactService.subscribe((c) => this.contacts =c);
-  }
   ngOnInit() {
-    /*this.searchNumber.valueChanges.debounceTime(400).distinctUntilChanged().subscribe(
+    this.searchNumber.valueChanges.debounceTime(400).distinctUntilChanged().subscribe(
         callNumber => {
-          this.subscribe(this.contactService.getContactsByNumber(callNumber))
+          this.callNumber = callNumber;
+          this.contactService.getData()
         }
-    );*/
-
-    this.getHeroes();
+    );
+    this.contactService.subscribe((c) => this.contacts = c.filter((contact,number,contacts) => contact.callNumber.startsWith(this.callNumber)));
+    //this.contactService.subscribe((c) => this.contacts = c);
   }
+
   onSelect(contact: Contact) { this.selectedContact = contact; }
   
   gotoDetail() {

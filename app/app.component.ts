@@ -34,7 +34,7 @@ import {ContactAddComponent} from "./contact-add.component";
 @Component({
   selector: 'my-app',
   template: `
-    <h1>{{title}}</h1>
+    <h3>{{title}}</h3>
     <nav>
       <a [routerLink]="['Dashboard']">Najczęściej wybierane</a>
       <a [routerLink]="['Contacts']">Kontakty</a>

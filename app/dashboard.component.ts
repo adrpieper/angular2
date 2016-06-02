@@ -21,8 +21,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.contactService.getTopContacts(5).then(contacts => this.contacts = contacts);
-    //this.contacts = this.contactService.getContactsTable();
+    this.contactService.subscribeTopContacts(contacts => this.contacts = contacts,4);
   }
 
   gotoDetail(contact: Contact) {

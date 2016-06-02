@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Contact } from './contact';
+import { NgForm }    from '@angular/common';
 
 @Component({
   selector: 'my-contact-detail',
