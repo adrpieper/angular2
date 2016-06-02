@@ -1,5 +1,5 @@
 <div >
   <h2>Edycja</h2>
-  <my-contact-detail [contact]="contact"></my-contact-detail>
-  <button (click)="goBack()">Powrót</button>
+  <my-contact-detail (valid)="valid" [contact]="contact"></my-contact-detail>
+  <button [disabled] = "valid" (click)="goBack()">Powrót</button>
 </div>

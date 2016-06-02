@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input, Output} from '@angular/core';
 import { Contact } from './contact';
 import { NgForm }    from '@angular/common';
 

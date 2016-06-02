@@ -6,10 +6,11 @@
   <div>
     <label>Imię: </label>
     <input  type="text" class="form-control" required [(ngModel)]="contact.name" placeholder="imię"
-           ngControl="name"  #name="ngForm"/>
-    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-      Name is required
-    </div>
+           ngControl="name"  #name="ngForm"
+            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"/>
+    <span [hidden]="name.valid || name.pristine" class="alert">
+      Podaj poprawny email
+    </span>
   <div>
   </div>
     <label>Nazwisko: </label>
@@ -17,12 +18,15 @@
   <div>
   </div>
     <label>Numer Telefonu: </label>
-    <input type="number" class="form-control" [(ngModel)]="contact.callNumber" placeholder="numer"
-    ngControl="callNumber"  #name="ngForm"/>
-    <div [hidden]="callNumber.valid || callNumber.pristine" class="alert alert-danger">
-      Number is required
+    <input type="text" class="form-control" [(ngModel)]="contact.callNumber" placeholder="numer"
+    ngControl="callNumber"  #callNumber="ngForm" pattern="^\d{6,9})+$"/>
+    <div [hidden]="callNumber.valid || callNumber.pristine" class="alert">
+      Podaj poprawny numer
     </div>
     </div>
   </form>
+  <div class="form-invalid" *ngIf="!contactForm.form.valid">
+    Popraw dane
+  </div>
 </div>
 

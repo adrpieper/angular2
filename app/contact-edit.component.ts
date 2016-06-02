@@ -11,6 +11,7 @@ import { ContactDetailComponent} from './contact-detail.component';
 })
 export class ContactEditComponent implements OnInit {
   contact: Contact;
+  valid: boolean;
   constructor(
     private contactService: ContactService,
     private routeParams: RouteParams) {
